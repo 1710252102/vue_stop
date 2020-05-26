@@ -342,7 +342,6 @@ export default {
       ).catch(err => err)
       // 如果用户确认删除，则返回值为字符串 confirm
       // 如果用户取消删除，则返回值为字符串 cancel
-
       if (confirmResult !== 'confirm') {
         return this.$message.info('已经取消删除')
       }
