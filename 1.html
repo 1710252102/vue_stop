@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function Point(x, y) {
+      console.log(this); // point对象
+      this.x = x;
+      this.y = y;
+      this.moveTo = function (x, y) {
+        this.x = x;
+        this.y = y;
+        console.log(this.x); //1 10
+        console.log(this.y); //1 10
+      }
+    }
+    var p1 = new Point(0, 0); //注意这种形式方法的调用及apply、call的使用
+    console.log(p1+'!!!');
+    var p2 = {
+      x: 0,
+      y: 0
+    }
+    p1.moveTo(1, 1);
+    p1.moveTo.apply(p2, [10, 10]);
+
+    console.log(x); // x is not defined
+    console.log(y); // 
+  </script>
+</body>
+
+</html>
