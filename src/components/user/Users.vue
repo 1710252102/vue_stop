@@ -298,8 +298,9 @@ export default {
       this.editForm = res.data
       this.editDialogVisible = true
     },
-    // 监听修改用户对话框的关闭时间
+    // 监听修改用户对话框的关闭事件
     editDialogClosed() {
+      console.log(this.$refs.editFormRef.resetFields());
       this.$refs.editFormRef.resetFields()
     },
     // 修改用户信息并提交
@@ -316,6 +317,7 @@ export default {
             mobile: this.editForm.mobile
           }
         )
+        // console.log(this.editForm.id)
         if (res.meta.status !== 200) {
           return this.$message.error('更新用户信息失败!')
         }
@@ -350,7 +352,7 @@ export default {
         return this.$message.error('删除用户失败')
       }
       this.$message.success('删除用户成功!')
-      this.getUserList();
+      this.getUserList()
     }
   }
 }
