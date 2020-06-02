@@ -6,19 +6,21 @@ import './plugins/element.js'
 import './assets/css/global.css'
 // 导入字体图标
 import './assets/fonts/iconfont.css'
+import TreeTable from 'vue-table-with-tree-grid'
 import axios from 'axios'
 //配置请求的根路径
 axios.defaults.baseURL = 'https://www.liulongbin.top:8888/api/private/v1/'
 // 通过axios拦截器添加token验证
-axios.interceptors.request.use(config=>{
-  config.headers.Authorization=window.sessionStorage.getItem('token');
+axios.interceptors.request.use(config => {
+  config.headers.Authorization = window.sessionStorage.getItem('token')
   // console.log(config);
   // 在最后必须 return config
-  return config;
+  return config
 })
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
+Vue.component('tree-table',TreeTable)
 new Vue({
   router,
-  render: (h) => h(App),
+  render: h => h(App)
 }).$mount('#app')
